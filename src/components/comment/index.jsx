@@ -5,6 +5,11 @@ import {Title} from "@mui/icons-material";
 
 function Comment({comment}) {
 
+    const handleLikeClick = (event) => {
+        console.log(event)
+        comment.likes = comment.likes + 1;
+    }
+
     return (
         <Box sx={{
             display: "flex",
@@ -18,7 +23,7 @@ function Comment({comment}) {
                 display:"flex",
                 alignItems: "center"
             }}>
-                {comment.likes}<ThumbUpOutlinedIcon  fontSize="small"/>
+                {comment.likes}<ThumbUpOutlinedIcon onClick={handleLikeClick}  fontSize="small"/>
             </Box>
         </Box>
     )

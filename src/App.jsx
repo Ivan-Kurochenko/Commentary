@@ -30,7 +30,7 @@ function App() {
             <TableContainer sx={{
                 display: "flex",
                 justifyContent: "center",
-                maxWidth: 550
+                maxWidth: 550,
             }}>
                 <Table>
                     <TableBody>
