@@ -3,6 +3,6 @@ import commentReducer from "../features/comment/commentSlice";
 
 export default configureStore({
   reducer: {
-    comment: commentReducer,
+    comments: commentReducer,
   },
 });

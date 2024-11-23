@@ -8,7 +8,10 @@ import ErrorPage from "./components/ErrorPage/index.jsx";
 
 function App() {
   const dispatch = useDispatch();
-  const comments = useSelector((state) => state.comment.commentList);
+  const comments = useSelector((state) =>{
+    console.log(state);
+    return state.comments.commentList
+  });
 
   useEffect(() => {
     dispatch(fetchComments());
@@ -17,7 +20,7 @@ function App() {
   return (
     <>
       <Header />
-      {comments? (
+      {comments ? (
         <>
           <CommentList />
           <Footer />

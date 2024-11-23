@@ -4,8 +4,8 @@ import { fetchComments, setPage } from "../../features/comment/commentSlice.js";
 
 function Footer() {
   const dispatch = useDispatch();
-  const page = useSelector((state) => state.comment.page);
-  const totalPages = useSelector((state) => state.comment.totalPages);
+  const page = useSelector((state) => state.comments.page);
+  const totalPages = useSelector((state) => state.comments.totalPages);
 
   const handlePageChange = (_, newPage) => {
     dispatch(setPage(newPage));

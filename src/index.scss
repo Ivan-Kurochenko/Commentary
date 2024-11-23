@@ -73,6 +73,44 @@ body {
   .main {
     @extend .flex-center;
     flex-direction: column;
+
+    .comment-table {
+      justify-content: center;
+      max-width: 550px;
+
+      .comment {
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        text-align: left;
+
+        .comment-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+
+          .user-info {
+            display: flex;
+            gap: 5px;
+            align-items: baseline;
+          }
+
+          svg {
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+          }
+        }
+
+        .comment-body {
+          .like-section {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+          }
+        }
+      }
+    }
   }
 
   .footer {
