@@ -1,5 +1,5 @@
 import { Box, Table, TableBody, TableCell, TableRow } from "@mui/material";
-import Comment from "../../features/comment/Comment.jsx";
+import Comment from "../Comment";
 import { useSelector } from "react-redux";
 
 function CommentList() {
@@ -11,7 +11,7 @@ function CommentList() {
         <TableBody>
           {comments.map((comment) => (
             <TableRow key={comment.id}>
-              <TableCell align={"center"}>
+              <TableCell>
                 <Comment comment={comment} />
               </TableCell>
             </TableRow>

@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
-import {deleteComment, likeComment} from "./commentSlice";
+import { deleteComment, likeComment } from "../../reducers/comment.js";
 import { useDispatch } from "react-redux";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { ThumbUp } from "@mui/icons-material";
@@ -19,7 +19,7 @@ function Comment({ comment }) {
     <Box className="comment">
       <Box className="comment-header">
         <Box className="user-info">
-          <Typography variant="h6">{comment.user.fullName}</Typography>
+          <Typography variant="subtitle1">{comment.user.fullName}</Typography>
           <Typography variant="subtitle1" color="rgb(113, 118, 123)">
             @{comment.user.username}
           </Typography>

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import commentReducer from "../features/comment/commentSlice";
+import commentReducer from "../reducers/comment.js";
 
 export default configureStore({
   reducer: {

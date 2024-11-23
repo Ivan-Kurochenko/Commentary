@@ -1,6 +1,6 @@
 import { Box, Pagination } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchComments, setPage } from "../../features/comment/commentSlice.js";
+import { fetchComments, setCurrentPage } from "../../reducers/comment.js";
 
 function Footer() {
   const dispatch = useDispatch();
@@ -8,7 +8,7 @@ function Footer() {
   const totalPages = useSelector((state) => state.comments.totalPages);
 
   const handlePageChange = (_, newPage) => {
-    dispatch(setPage(newPage));
+    dispatch(setCurrentPage(newPage));
     dispatch(fetchComments());
   };
 
