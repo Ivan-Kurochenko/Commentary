@@ -1,12 +1,25 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+// An arbitrary number.
+const COMMENTS_PER_PAGE = 20;
+
 export const fetchComments = createAsyncThunk(
   "comments/fetchComments",
-  async () => {
-    const response = await fetch("https://dummyjson.com/comments?limit=0", {
-      method: "GET",
-    });
-    return await response.json();
+  async (_, { getState }) => {
+    console.log("getting pages ... ", getState());
+    const state = getState();
+    const page = state.comment.page;
+    console.log(page);
+    const response = await fetch(
+      `https://dummyjson.com/comments?limit=${COMMENTS_PER_PAGE}&skip=${(page - 1) * COMMENTS_PER_PAGE}`,
+      {
+        method: "GET",
+      },
+    );
+
+    let data = await response.json();
+    console.log(data);
+    return data;
   },
 );
 
@@ -14,6 +27,7 @@ const initialState = {
   commentList: [],
   totalComments: 0,
   page: 1,
+  totalPages: 0,
   status: "idle", // idle | loading | succeeded | failed
 };
 
@@ -53,6 +67,7 @@ const commentsSlice = createSlice({
           isLiked: false,
         }));
         state.totalComments = action.payload.total;
+        state.totalPages = Math.ceil(state.totalComments / COMMENTS_PER_PAGE);
       })
       .addCase(fetchComments.rejected, (state) => {
         state.status = "failed";

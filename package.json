@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run format && npm run lint && vite build",
+    "build": "npm run prettier-all && vite build",
     "lint": "eslint js",
     "preview": "vite preview",
-    "format": "prettier --write ."
+    "prettier-all": "prettier --write ."
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
