@@ -1,0 +1,24 @@
+{
+  "family": "commentary-task",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "arn:aws:iam::891612568392:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "commentary",
+      "image": "891612568392.dkr.ecr.eu-north-1.amazonaws.com/ikuroche:latest",
+      "memory": 512,
+      "cpu": 256,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512"
+}

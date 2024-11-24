@@ -48,7 +48,8 @@ const commentsSlice = createSlice({
       }
     },
     setCurrentPage(state, action) {
-      state.page = action.payload;
+      console.log("setting current page");
+      state.currentPage = action.payload;
     },
   },
   extraReducers: (builder) => {
